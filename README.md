@@ -4,7 +4,7 @@
 
 # Introduction
 
-This directory contains example designs for the Digilent Arty board.
+This repository contains example designs for the Digilent Arty board.
 
 Digilent provides an extensive reference manual and reference designs for this board - see the Resources below.
 
