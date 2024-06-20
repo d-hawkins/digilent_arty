@@ -1,5 +1,3 @@
-# Xilinx JESD204C Analysis
-
 # Digilent Arty
 
 6/19/2024 D. W. Hawkins (dwh@caltech.edu)
