@@ -23,7 +23,9 @@ proc apply_clock_constraints {clock_constraints} {
 	#
 	set port [get_ports -quiet clk_100mhz]
 	if {[llength $port]} {
-		create_clock -period 10.000 -name clk_100MHz -add $port
+		create_clock -period 10.000 -name clk_100mhz -add $port
+		set_clock_groups -group \
+			[get_clocks clk_100mhz -include_generated_clocks] -asynchronous
 	}
 
 	# -------------------------------------------------------------------------
@@ -34,6 +36,8 @@ proc apply_clock_constraints {clock_constraints} {
 	set port [get_pins -quiet */CFGMCLK]
 	if {[llength $port]} {
 		create_clock -period 15.384 -name clk_65mhz $port
+		set_clock_groups -group \
+			[get_clocks clk_65mhz -include_generated_clocks] -asynchronous
 	}
 
 	return
