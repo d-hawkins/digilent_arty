@@ -172,8 +172,10 @@ module arty  (
 	assign rgb_count = count[WIDTH-1:WIDTH-7];
 
 	// RGB LED enables
-	assign rgb_en =
-		{{3{rgb_count[3]}}, {3{rgb_count[2]}}, {3{rgb_count[1]}}, {3{rgb_count[0]}}};
+	assign rgb_en = {
+		{3{rgb_count[3]}}, {3{rgb_count[2]}},
+		{3{rgb_count[1]}}, {3{rgb_count[0]}}
+	};
 
 	// Color and count
 	assign rgb_control = {4{rgb_count[6:4]}} & rgb_en;
