@@ -319,6 +319,75 @@ proc get_pin_constraints {} {
 	dict set pin pwr_isns_0v95_n {PACKAGE_PIN A16  IOSTANDARD LVCMOS33  OFFCHIP_TERM NONE}
 	dict set pin pwr_isns_0v95_p {PACKAGE_PIN A15  IOSTANDARD LVCMOS33  OFFCHIP_TERM NONE}
 
+	# -------------------------------------------------------------------------
+	# DDR3 Interface
+	# -------------------------------------------------------------------------
+	#
+	# Constraints taken from a MIG project file.
+	#
+	# DDR Reset
+	# * The reset is placed in bank 34 with the other DDR3 signals
+	# * Bank 34 VCCIO = 1.35V for the DDR3L
+	# * Reset logic level must use LVCMOS, but there is no 1.35V standard.
+	#   Use LVCMOS12 or LVCMOS15 generates VCCO voltage compatibility errors.
+#	dict set pin ddr3_reset_n      {PACKAGE_PIN K6  IOSTANDARD  LVCMOS15}
+	dict set pin ddr3_reset_n      {PACKAGE_PIN K6  IOSTANDARD  SSTL135}
+
+	# DDR Clock
+	dict set pin ddr3_ck_p         {PACKAGE_PIN U9  IOSTANDARD  DIFF_SSTL135}
+	dict set pin ddr3_ck_n         {PACKAGE_PIN V9  IOSTANDARD  DIFF_SSTL135}
+
+	# DDR Controls
+	dict set pin ddr3_cs_n         {PACKAGE_PIN U8  IOSTANDARD  SSTL135}
+	dict set pin ddr3_ras_n        {PACKAGE_PIN P3  IOSTANDARD  SSTL135}
+	dict set pin ddr3_cas_n        {PACKAGE_PIN M4  IOSTANDARD  SSTL135}
+	dict set pin ddr3_we_n         {PACKAGE_PIN P5  IOSTANDARD  SSTL135}
+	dict set pin ddr3_cke          {PACKAGE_PIN N5  IOSTANDARD  SSTL135}
+	dict set pin ddr3_odt          {PACKAGE_PIN R5  IOSTANDARD  SSTL135}
+
+	# DDR Address
+	dict set pin ddr3_addr(0)      {PACKAGE_PIN R2  IOSTANDARD  SSTL135}
+	dict set pin ddr3_addr(1)      {PACKAGE_PIN M6  IOSTANDARD  SSTL135}
+	dict set pin ddr3_addr(2)      {PACKAGE_PIN N4  IOSTANDARD  SSTL135}
+	dict set pin ddr3_addr(3)      {PACKAGE_PIN T1  IOSTANDARD  SSTL135}
+	dict set pin ddr3_addr(4)      {PACKAGE_PIN N6  IOSTANDARD  SSTL135}
+	dict set pin ddr3_addr(5)      {PACKAGE_PIN R7  IOSTANDARD  SSTL135}
+	dict set pin ddr3_addr(6)      {PACKAGE_PIN V6  IOSTANDARD  SSTL135}
+	dict set pin ddr3_addr(7)      {PACKAGE_PIN U7  IOSTANDARD  SSTL135}
+	dict set pin ddr3_addr(8)      {PACKAGE_PIN R8  IOSTANDARD  SSTL135}
+	dict set pin ddr3_addr(9)      {PACKAGE_PIN V7  IOSTANDARD  SSTL135}
+	dict set pin ddr3_addr(10)     {PACKAGE_PIN R6  IOSTANDARD  SSTL135}
+	dict set pin ddr3_addr(11)     {PACKAGE_PIN U6  IOSTANDARD  SSTL135}
+	dict set pin ddr3_addr(12)     {PACKAGE_PIN T6  IOSTANDARD  SSTL135}
+	dict set pin ddr3_addr(13)     {PACKAGE_PIN T8  IOSTANDARD  SSTL135}
+	dict set pin ddr3_ba(0)        {PACKAGE_PIN R1  IOSTANDARD  SSTL135}
+	dict set pin ddr3_ba(1)        {PACKAGE_PIN P4  IOSTANDARD  SSTL135}
+	dict set pin ddr3_ba(2)        {PACKAGE_PIN P2  IOSTANDARD  SSTL135}
+
+	# DDR Data
+	dict set pin ddr3_dqs_p(0)     {PACKAGE_PIN N2  IOSTANDARD  DIFF_SSTL135}
+	dict set pin ddr3_dqs_n(0)     {PACKAGE_PIN N1  IOSTANDARD  DIFF_SSTL135}
+	dict set pin ddr3_dqs_p(1)     {PACKAGE_PIN U2  IOSTANDARD  DIFF_SSTL135}
+	dict set pin ddr3_dqs_n(1)     {PACKAGE_PIN V2  IOSTANDARD  DIFF_SSTL135}
+	dict set pin ddr3_dm(0)        {PACKAGE_PIN L1  IOSTANDARD  SSTL135}
+	dict set pin ddr3_dm(1)        {PACKAGE_PIN U1  IOSTANDARD  SSTL135}
+	dict set pin ddr3_dq(0)        {PACKAGE_PIN K5  IOSTANDARD  SSTL135}
+	dict set pin ddr3_dq(1)        {PACKAGE_PIN L3  IOSTANDARD  SSTL135}
+	dict set pin ddr3_dq(2)        {PACKAGE_PIN K3  IOSTANDARD  SSTL135}
+	dict set pin ddr3_dq(3)        {PACKAGE_PIN L6  IOSTANDARD  SSTL135}
+	dict set pin ddr3_dq(4)        {PACKAGE_PIN M3  IOSTANDARD  SSTL135}
+	dict set pin ddr3_dq(5)        {PACKAGE_PIN M1  IOSTANDARD  SSTL135}
+	dict set pin ddr3_dq(6)        {PACKAGE_PIN L4  IOSTANDARD  SSTL135}
+	dict set pin ddr3_dq(7)        {PACKAGE_PIN M2  IOSTANDARD  SSTL135}
+	dict set pin ddr3_dq(8)        {PACKAGE_PIN V4  IOSTANDARD  SSTL135}
+	dict set pin ddr3_dq(9)        {PACKAGE_PIN T5  IOSTANDARD  SSTL135}
+	dict set pin ddr3_dq(10)       {PACKAGE_PIN U4  IOSTANDARD  SSTL135}
+	dict set pin ddr3_dq(11)       {PACKAGE_PIN V5  IOSTANDARD  SSTL135}
+	dict set pin ddr3_dq(12)       {PACKAGE_PIN V1  IOSTANDARD  SSTL135}
+	dict set pin ddr3_dq(13)       {PACKAGE_PIN T3  IOSTANDARD  SSTL135}
+	dict set pin ddr3_dq(14)       {PACKAGE_PIN U3  IOSTANDARD  SSTL135}
+	dict set pin ddr3_dq(15)       {PACKAGE_PIN R3  IOSTANDARD  SSTL135}
+
 	# Return dictionary
 	return $pin
 }
@@ -352,6 +421,12 @@ proc apply_pin_constraints {ports pin_constraints {unused Pullup}} {
 		# Convert port name (with square brackets) to pin name
 		# * Replace square brackets with paranthesis
 		set pin [string map {\[ ( \] )} $port]
+
+		# Allow the MIG to define the DDR3 pin constraints
+#		if {[string first ddr3_ $pin] == 0} {
+#			puts "pin_constraints.tcl: skipping $port"
+#			continue
+#		}
 
 		# Check that the pin name exists in the dictionary
 		# * Top-level port names must match the dictionary names
