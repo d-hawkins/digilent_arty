@@ -79,11 +79,11 @@ module arty  (
 	logic [11:0] rgb_control;
 
 	// DDR3 MIG reset
-    wire ddr3_sys_rst_n;
+	wire ddr3_sys_rst_n;
 
 	// DDR3 status
-    wire ddr3_locked;
-    wire ddr3_ready;
+	wire ddr3_locked;
+	wire ddr3_ready;
 
 	// ------------------------------------------------------------------------
 	// Input buffer
@@ -178,8 +178,8 @@ module arty  (
 	// Color and count
 	assign rgb_control = {4{rgb_count[6:4]}} & rgb_en;
 
-   	// Duty-cycled RGB output
-    assign led_rgb = rgb_duty ? rgb_control : 12'h000;
+	// Duty-cycled RGB output
+	assign led_rgb = rgb_duty ? rgb_control : 12'h000;
 
 	// ------------------------------------------------------------------------
 	// Block Design
