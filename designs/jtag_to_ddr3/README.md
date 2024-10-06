@@ -16,11 +16,15 @@ https://github.com/viktor-nikolov/MicroBlaze-DDR3-tutorial
 
 The design in this repository implements a block design containing:
  
- * A JTAG-to-AXI bridge (for hardware test)
- * An AXI-MM VIP (for simulation test)
- * A MIG DDR3 controller
- * A processor reset (to convert the active-high ui_rst to AXI-MM active low)
- * An MMCM to generate 200MHz for the DDR3 IDELAYCTRL reference clock
+ * u1: A JTAG-to-AXI bridge (for hardware test)
+ * u2: An AXI-MM VIP (for simulation test)
+ * u3: An AXI SmartConnect
+ * u4: A MIG DDR3 controller
+ * u5: A processor reset (to convert the active-high ui_rst to AXI-MM active low)
+
+![Vivado block design](./misc/arty_jtag_to_ddr3_block_design.png)
+
+The top-level design, arty.sv, instantiates the block design, along with an MMCM to generate 200MHz for the DDR3 IDELAYCTRL reference clock, and logic to blink the LEDs.
 
 ## DDR3 reset incorrect logic standard
 
