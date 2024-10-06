@@ -99,7 +99,7 @@ proc apply_false_paths {} {
 	#
 	# Asynchronous ports list
 	set names [list \
-		{led_g[*]} {led_rgb[*]} uart_txd \
+		{led_g[*]} {led_rgb[*]} uart_txd ddr3_reset_n \
 	]
 
 	# False path and dummy input delays
