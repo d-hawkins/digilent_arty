@@ -3,13 +3,7 @@
 //
 // 6/19/2024 D. W. Hawkins (dwh@caltech.edu)
 //
-// Digilent Arty Artix-7 'blinky' design.
-//
-// When the Arty board is oriented with the Ethernet RJ45 connector on the
-// left-side, the LEDs are located on the bottom left corner. The four Green
-// LEDs are located above the four RGB LEDs. The 'blinky' design generates
-// the same 4-bit count on the Green and RGB LEDs, but the color of the RGB
-// LEDs changes as the count increases.
+// Digilent Arty Artix-7 'jtag_to_ddr3' design.
 //
 // ----------------------------------------------------------------------------
 
