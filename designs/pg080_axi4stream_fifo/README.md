@@ -1,6 +1,6 @@
 # Digilent Arty PG080 AXI4-Stream FIFO Example
 
-9/25/2024 D. W. Hawkins (dwh@caltech.edu)
+9/1/2025 D. W. Hawkins (dwh@caltech.edu)
 
 This example design demonstrates the use of the Xilinx PG080 AXI4-Stream FIFO
 
